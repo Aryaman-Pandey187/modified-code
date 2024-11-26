@@ -1,0 +1,81 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Artificial Data Generator</title>
+    <link href="{% static 'source_info/index.css' %}" rel="stylesheet">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+    <!-- Background -->
+    <div class="background"></div>
+
+    <!-- Header Section -->
+    <div class="header">
+        <div class="text-item">
+            <h1 id="artificial">ARTIFICIAL</h1>
+            <h3 id="data-generator">DATA GENERATOR</h3>
+        </div>
+    </div>
+
+    <!-- Form Section -->
+    <div class="form-container">
+        <form method="POST" action="#">
+            {% csrf_token %}
+            <h2>Source Details</h2>
+            <div class="input-box">
+                <span class="icon"><i class='bx bxs-data'></i></span>
+                <input type="text" name="source_database" style="color:white;" required>
+                <label style="font-weight: 100;">Source Database</label>
+            </div>
+            <div class="input-box">
+                <span class="icon"><i class='bx bx-table'></i></span>
+                <input type="text" name="source_table" style="color:white;" required>
+                <label>Source Table</label>
+            </div>
+            <button type="submit" class="btn" style="width: 100%;">NEXT</button>
+            {% if error %}
+            <p style="color:red;">{{ error }}</p>
+            {% endif %}
+        </form>
+    </div>
+    <div id="time" style="position: absolute; bottom: 20px; left: 20px;"></div>
+    <!-- Footer -->
+    <!-- <div id="username">Developed by: Aryaman Pandey</div> -->
+    <table style="position: absolute; bottom: 10px; right: 10px; border: 2px solid #fff; border-collapse: collapse;">
+        <tr style="border: 2px solid #fff;">
+            <th colspan="2">Entered Details</th>
+        </tr>
+        <tr>
+            <td style="border: 1px solid #fff; padding: 5px 5px 5px 5px;">PROD User</td>
+            <td style="border: 1px solid #fff; padding: 5px 5px 5px 5px;">Intranet ID</td>
+        </tr>
+        <tr>
+            <td style="border: 1px solid #fff; padding: 5px 5px 5px 5px;">Source database</td>
+            <td style="border: 1px solid #fff; padding: 5px 5px 5px 5px;">e_ftc_frfs_db</td>
+        </tr>
+        <tr>
+            <td style="border: 1px solid #fff; padding: 5px 5px 5px 5px;">Source table</td>
+            <td style="border: 1px solid #fff; padding: 5px 5px 5px 5px;">pega_work_mules</td>
+        </tr>
+        <tr>
+            <td style="border: 1px solid #fff; padding: 5px 5px 5px 5px;">Target Environment</td>
+            <td style="border: 1px solid #fff;padding: 5px 5px 5px 5px;">SIT</td>
+        </tr>
+        <tr>
+            <td style="border: 1px solid #fff;padding: 5px 5px 5px 5px;">Target ENV User</td>
+            <td style="border: 1px solid #fff; padding: 5px 5px 5px 5px;">Batch User</td>
+        </tr>
+        <tr>
+            <td style="border: 1px solid #fff; padding: 5px 5px 5px 5px;">Target Database</td>
+            <td style="border: 1px solid #fff; padding: 5px 5px 5px 5px;">e_ftc_frfs_db</td>
+        </tr>
+        <tr>
+            <td style="border: 1px solid #fff; padding: 5px 5px 5px 5px;">Target table</td>
+            <td style="border: 1px solid #fff; padding: 5px 5px 5px 5px;">pega_work_mules</td>
+            <!-- <td style="border: 1px solid #fff;">Mexico</td> -->
+        </tr>
+    </table>
+    <script src="{% static 'source_info/index.js' %}"></script>
+</body>
+</html>
